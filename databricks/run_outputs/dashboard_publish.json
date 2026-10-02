@@ -1,0 +1,10 @@
+{
+ "dashboard_name": "da-learn-04 Loan default risk",
+ "dashboard_id": "01f1be80851614a3b73eadedff811659",
+ "workspace_path": "/Shared/da-learn-04-loan-default-risk/da-learn-04 Loan default risk.lvdash.json",
+ "published": true,
+ "published_revision_time": "2026-10-02T16:44:25.295Z",
+ "data_widgets": 8,
+ "notebook_path": "/Workspace/Shared/da-learn-04-loan-default-risk/loan_default_pipeline_notebook",
+ "warehouse": "Serverless Starter Warehouse"
+}

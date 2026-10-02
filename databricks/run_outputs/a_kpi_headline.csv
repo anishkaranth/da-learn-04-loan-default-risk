@@ -1,0 +1,2 @@
+loans,completed_loans,current_loans,defaults,default_rate_pct,funded_total,avg_funded_amount,avg_int_rate_pct,median_annual_income,median_dti,pct_60_month,principal_lost,loss_rate_pct,net_return_pct,first_issue_month,last_issue_month
+39717,38577,1140,5627,14.59,4.34810325E8,10948.0,12.02,59000.0,13.4,26.74,4.0049086E7,9.63,10.04,2007-06-01,2011-12-01

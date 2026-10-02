@@ -1,0 +1,51 @@
+{
+ "compared_at_ist": "2026-10-02 22:14 IST",
+ "row_counts": [
+   {"table": "stg_loans", "duckdb_rows": 39717, "databricks_rows": 39717, "match": true},
+   {"table": "cln_loans", "duckdb_rows": 39717, "databricks_rows": 39717, "match": true},
+   {"table": "fact_loan", "duckdb_rows": 39717, "databricks_rows": 39717, "match": true},
+   {"table": "dim_date", "duckdb_rows": 55, "databricks_rows": 55, "match": true},
+   {"table": "dim_grade", "duckdb_rows": 35, "databricks_rows": 35, "match": true},
+   {"table": "dim_purpose", "duckdb_rows": 14, "databricks_rows": 14, "match": true},
+   {"table": "dim_geography", "duckdb_rows": 50, "databricks_rows": 50, "match": true},
+   {"table": "dim_borrower", "duckdb_rows": 316, "databricks_rows": 316, "match": true}
+  ],
+ "table_comparisons": {
+  "a_kpi_headline": {
+   "rows_databricks": 1,
+   "rows_duckdb": 1,
+   "cell_diffs": []
+  },
+  "a_default_by_grade": {
+   "rows_databricks": 7,
+   "rows_duckdb": 7,
+   "cell_diffs": []
+  },
+  "a_default_by_purpose": {
+   "rows_databricks": 14,
+   "rows_duckdb": 14,
+   "cell_diffs": []
+  },
+  "a_default_by_income": {
+   "rows_databricks": 6,
+   "rows_duckdb": 6,
+   "cell_diffs": []
+  },
+  "a_default_by_dti": {
+   "rows_databricks": 6,
+   "rows_duckdb": 6,
+   "cell_diffs": []
+  },
+  "dq_assertions": {
+   "rows_databricks": 15,
+   "rows_duckdb": 15,
+   "cell_diffs": []
+  },
+  "dq_issues": {
+   "rows_databricks": 12,
+   "rows_duckdb": 12,
+   "cell_diffs": []
+  }
+ },
+ "all_row_counts_match": true
+}

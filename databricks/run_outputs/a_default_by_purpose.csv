@@ -1,0 +1,15 @@
+purpose,purpose_label,loans,defaults,default_rate_pct,avg_funded_amount,avg_int_rate_pct,principal_loss
+car,Car,1499,160,10.67,6681.0,10.46,600391.0
+credit_card,Credit card,5027,542,10.78,11305.0,11.62,3898013.0
+debt_consolidation,Debt consolidation,18055,2767,15.33,12208.0,12.4,2.193115E7
+educational,Educational,325,56,17.23,6692.0,11.65,225053.0
+home_improvement,Home improvement,2875,347,12.07,10997.0,11.29,2547645.0
+house,House,367,59,16.08,12404.0,12.16,431404.0
+major_purchase,Major purchase,2150,222,10.33,7896.0,10.8,1190472.0
+medical,Medical,681,106,15.57,7974.0,11.43,588408.0
+moving,Moving,576,92,15.97,6423.0,11.53,335070.0
+other,Other,3865,633,16.38,7763.0,11.72,3110398.0
+renewable_energy,Renewable energy,102,19,18.63,8328.0,11.44,84139.0
+small_business,Small business,1754,475,27.08,12844.0,12.9,4327060.0
+vacation,Vacation,375,53,14.13,5332.0,10.83,155978.0
+wedding,Wedding,926,96,10.37,9633.0,11.78,623904.0

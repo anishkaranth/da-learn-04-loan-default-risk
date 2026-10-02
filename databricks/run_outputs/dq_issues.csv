@@ -1,0 +1,13 @@
+check_name,affected_rows
+RI: fact without borrower profile,0
+RI: fact without geography,0
+RI: fact without grade,0
+RI: fact without purpose,0
+"loans: annual income outlier > Q3 + 3*IQR (kept, flagged)",537
+loans: charged off with recoveries > 0,4218
+loans: duplicate or unusable rows removed,0
+loans: emp_length n/a (-> Unknown),1075
+loans: funded by investors < funded amount,19842
+loans: home_ownership NONE/OTHER (-> OTHER),101
+loans: revol_util missing,50
+loans: still Current (excluded from default rates),1140

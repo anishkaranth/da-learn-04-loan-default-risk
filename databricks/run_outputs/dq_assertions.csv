@@ -1,0 +1,16 @@
+check_name,failed_rows,status
+dti between 0 and 30,0,PASS
+earliest credit line before issue month,0,PASS
+every state mapped to a census region,0,PASS
+fact_loan.borrower_key -> dim_borrower,0,PASS
+fact_loan.geo_key -> dim_geography,0,PASS
+fact_loan.grade_key -> dim_grade,0,PASS
+fact_loan.issue_month_key -> dim_date,0,PASS
+fact_loan.loan_id unique,0,PASS
+fact_loan.purpose_key -> dim_purpose,0,PASS
+funded amount <= requested amount,0,PASS
+grade default rates rise A -> G,0,PASS
+interest rate between 5% and 25%,0,PASS
+principal loss only on charged-off loans,0,PASS
+sub_grade starts with grade,0,PASS
+term is 36 or 60 months,0,PASS
