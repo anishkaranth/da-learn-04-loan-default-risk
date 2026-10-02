@@ -1,0 +1,39 @@
+borrower_key,home_ownership,verification_status,emp_length_band,income_band
+1,MORTGAGE,Not verified,0-1 yrs,3: 50-75k
+2,MORTGAGE,Not verified,10+ yrs,2: 30-50k
+3,MORTGAGE,Not verified,10+ yrs,3: 50-75k
+4,MORTGAGE,Not verified,2-4 yrs,2: 30-50k
+5,MORTGAGE,Not verified,2-4 yrs,3: 50-75k
+6,MORTGAGE,Not verified,2-4 yrs,4: 75-100k
+7,MORTGAGE,Not verified,5-9 yrs,1: <30k
+8,MORTGAGE,Not verified,5-9 yrs,2: 30-50k
+9,MORTGAGE,Not verified,5-9 yrs,5: 100-150k
+10,MORTGAGE,Source verified,10+ yrs,2: 30-50k
+11,MORTGAGE,Source verified,2-4 yrs,3: 50-75k
+12,MORTGAGE,Source verified,2-4 yrs,4: 75-100k
+13,MORTGAGE,Source verified,2-4 yrs,5: 100-150k
+14,MORTGAGE,Source verified,5-9 yrs,4: 75-100k
+15,MORTGAGE,Verified,10+ yrs,3: 50-75k
+16,MORTGAGE,Verified,10+ yrs,4: 75-100k
+17,MORTGAGE,Verified,5-9 yrs,4: 75-100k
+18,OTHER,Not verified,0-1 yrs,1: <30k
+19,OWN,Not verified,10+ yrs,4: 75-100k
+20,OWN,Not verified,5-9 yrs,2: 30-50k
+21,OWN,Source verified,5-9 yrs,1: <30k
+22,RENT,Not verified,0-1 yrs,2: 30-50k
+23,RENT,Not verified,0-1 yrs,4: 75-100k
+24,RENT,Not verified,10+ yrs,3: 50-75k
+25,RENT,Not verified,2-4 yrs,1: <30k
+26,RENT,Not verified,2-4 yrs,3: 50-75k
+27,RENT,Not verified,2-4 yrs,4: 75-100k
+28,RENT,Not verified,5-9 yrs,2: 30-50k
+29,RENT,Not verified,5-9 yrs,3: 50-75k
+30,RENT,Source verified,0-1 yrs,1: <30k
+31,RENT,Source verified,0-1 yrs,4: 75-100k
+32,RENT,Source verified,10+ yrs,2: 30-50k
+33,RENT,Source verified,2-4 yrs,1: <30k
+34,RENT,Source verified,2-4 yrs,3: 50-75k
+35,RENT,Verified,0-1 yrs,2: 30-50k
+36,RENT,Verified,2-4 yrs,4: 75-100k
+37,RENT,Verified,5-9 yrs,1: <30k
+38,RENT,Verified,Unknown,1: <30k
