@@ -1,0 +1,19 @@
+-- Measures for the da-learn-04 Loan default risk model (table: fact_loan)
+Loans = COUNTROWS ( fact_loan )
+Completed Loans = CALCULATE ( [Loans], fact_loan[is_completed] = 1 )
+Defaults = SUM ( fact_loan[is_default] )
+Default Rate = DIVIDE ( [Defaults], [Completed Loans] )
+Funded = SUM ( fact_loan[funded_amount] )
+Funded Completed = CALCULATE ( [Funded], fact_loan[is_completed] = 1 )
+Principal Lost = SUM ( fact_loan[principal_loss] )
+Loss Rate = DIVIDE ( [Principal Lost], [Funded Completed] )
+Net Return =
+    DIVIDE (
+        CALCULATE ( SUM ( fact_loan[total_payment] ), fact_loan[is_completed] = 1 ) - [Funded Completed],
+        [Funded Completed]
+    )
+Avg Interest Rate = DIVIDE ( AVERAGE ( fact_loan[int_rate_pct] ), 100 )
+Median Income = MEDIAN ( fact_loan[annual_income] )
+Median DTI = MEDIAN ( fact_loan[dti] )
+Share 60 Month = DIVIDE ( CALCULATE ( [Loans], fact_loan[term_months] = 60 ), [Loans] )
+Default Rate vs Portfolio = [Default Rate] - CALCULATE ( [Default Rate], ALL ( dim_grade ), ALL ( dim_purpose ), ALL ( dim_borrower ) )
