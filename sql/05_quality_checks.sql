@@ -15,7 +15,7 @@ CREATE OR REPLACE TABLE dq_null_rates AS
 SELECT 'loans' AS entity, 'emp_length' AS column_name,
   (SELECT ROUND(100.0 * SUM(CASE WHEN emp_length IS NULL OR trim(emp_length) IN ('', 'n/a') THEN 1 ELSE 0 END) / COUNT(*), 3) FROM stg_loans) AS raw_null_pct,
   (SELECT ROUND(100.0 * SUM(CASE WHEN emp_length_years IS NULL THEN 1 ELSE 0 END) / COUNT(*), 3) FROM cln_loans) AS clean_null_pct,
-  '''n/a'' -> NULL, reported as band ''Unknown''' AS treatment
+  'n/a -> NULL, reported as band Unknown' AS treatment
 UNION ALL SELECT 'loans', 'revol_util',
   (SELECT ROUND(100.0 * SUM(CASE WHEN revol_util IS NULL OR trim(revol_util) = '' THEN 1 ELSE 0 END) / COUNT(*), 3) FROM stg_loans),
   (SELECT ROUND(100.0 * SUM(CASE WHEN revolving_util_pct IS NULL THEN 1 ELSE 0 END) / COUNT(*), 3) FROM cln_loans),
@@ -27,12 +27,12 @@ UNION ALL SELECT 'loans', 'pub_rec_bankruptcies',
 UNION ALL SELECT 'loans', 'int_rate',
   (SELECT ROUND(100.0 * SUM(CASE WHEN TRY_CAST(replace(int_rate, '%', '') AS DOUBLE) IS NULL THEN 1 ELSE 0 END) / COUNT(*), 3) FROM stg_loans),
   (SELECT ROUND(100.0 * SUM(CASE WHEN int_rate_pct IS NULL THEN 1 ELSE 0 END) / COUNT(*), 3) FROM cln_loans),
-  'required; ''%'' stripped and cast to DOUBLE';
+  'required; percent sign stripped, cast to DOUBLE';
 
 CREATE OR REPLACE TABLE dq_issues AS
 SELECT 'loans: duplicate or unusable rows removed' AS check_name,
        (SELECT COUNT(*) FROM stg_loans) - (SELECT COUNT(*) FROM cln_loans) AS affected_rows
-UNION ALL SELECT 'loans: emp_length ''n/a'' (-> Unknown)', (SELECT SUM(dq_missing_emp_length) FROM cln_loans)
+UNION ALL SELECT 'loans: emp_length n/a (-> Unknown)', (SELECT SUM(dq_missing_emp_length) FROM cln_loans)
 UNION ALL SELECT 'loans: revol_util missing', (SELECT SUM(dq_missing_revol_util) FROM cln_loans)
 UNION ALL SELECT 'loans: home_ownership NONE/OTHER (-> OTHER)', (SELECT COUNT(*) FROM stg_loans WHERE trim(home_ownership) IN ('NONE', 'OTHER'))
 UNION ALL SELECT 'loans: annual income outlier > Q3 + 3*IQR (kept, flagged)', (SELECT SUM(is_income_outlier_iqr3) FROM cln_loans)
