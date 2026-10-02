@@ -1,0 +1,33 @@
+{
+ "project": "da-learn-04-loan-default-risk",
+ "dataset": "Lending Club loans issued 2007-2011 (LoanStats3a; Kaggle: imsparsh/lending-club-loan-dataset-2007-2011)",
+ "units": "USD",
+ "raw_files": ["loan.csv"],
+ "star": ["fact_loan", "dim_date", "dim_grade", "dim_purpose", "dim_geography", "dim_borrower"],
+ "core_tables": ["stg_loans", "cln_loans", "fact_loan", "dim_date", "dim_grade", "dim_purpose", "dim_geography", "dim_borrower"],
+ "compare_tables": ["a_kpi_headline", "a_default_by_grade", "a_default_by_purpose", "a_default_by_income", "a_default_by_dti", "dq_assertions", "dq_issues"],
+ "shot_config": {"sql_dialect": "Spark/Databricks SQL (+ DuckDB shims in 00)",
+                 "default_definition": "loan_status = 'Charged Off'",
+                 "default_rate_denominator": "completed loans (Fully Paid + Charged Off); 'Current' loans excluded",
+                 "net_return_definition": "(total_pymnt - funded_amnt) / funded_amnt on completed loans, not annualised",
+                 "outlier_rule": "annual_income > Q3 + 3*IQR (flag only)",
+                 "sample_rule": "loan id % 800 = 0 (49 loans, 32 columns)"},
+ "shot_headline": ["loans", "completed_loans", "current_loans", "defaults", "default_rate_pct", "funded_total",
+                   "avg_int_rate_pct", "median_annual_income", "median_dti", "pct_60_month", "principal_lost",
+                   "loss_rate_pct", "net_return_pct", "first_issue_month", "last_issue_month"],
+ "shot_queries": {
+   "default_by_grade": "SELECT grade, loans, default_rate_pct, avg_int_rate_pct, net_return_pct FROM a_default_by_grade ORDER BY grade_rank",
+   "default_by_purpose_top5": "SELECT purpose, loans, default_rate_pct FROM a_default_by_purpose ORDER BY default_rate_pct DESC LIMIT 5",
+   "default_by_income": "SELECT income_band, loans, default_rate_pct FROM a_default_by_income ORDER BY income_band",
+   "default_by_dti": "SELECT dti_band, loans, default_rate_pct FROM a_default_by_dti ORDER BY dti_band",
+   "default_by_term": "SELECT value AS term, loans, default_rate_pct FROM a_default_by_profile WHERE attribute = 'term' ORDER BY value"
+ },
+ "databricks": {
+   "catalog": "workspace", "schema": "da_learn_04",
+   "title": "Lending Club loan default risk",
+   "notebook": "loan_default_pipeline_notebook",
+   "dashboard_file": "loan_default_dashboard.lvdash.json",
+   "dashboard_name": "da-learn-04 Loan default risk",
+   "staging": {"stg_loans": {"file": "loan.csv", "select": "id, member_id, loan_amnt, funded_amnt, funded_amnt_inv, term, int_rate, installment, grade, sub_grade, emp_length, home_ownership, annual_inc, verification_status, issue_d, loan_status, purpose, addr_state, dti, delinq_2yrs, earliest_cr_line, inq_last_6mths, open_acc, pub_rec, revol_bal, revol_util, total_acc, total_pymnt, total_rec_prncp, total_rec_int, recoveries, pub_rec_bankruptcies"}}
+ }
+}
