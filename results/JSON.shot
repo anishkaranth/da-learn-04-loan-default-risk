@@ -1,0 +1,187 @@
+{
+  "snapshot": "headline KPIs + key breakdowns + run config",
+  "project": "da-learn-04-loan-default-risk",
+  "source_mode": "full",
+  "config": {
+    "sql_dialect": "Spark/Databricks SQL (+ DuckDB shims in 00)",
+    "default_definition": "loan_status = 'Charged Off'",
+    "default_rate_denominator": "completed loans (Fully Paid + Charged Off); 'Current' loans excluded",
+    "net_return_definition": "(total_pymnt - funded_amnt) / funded_amnt on completed loans, not annualised",
+    "outlier_rule": "annual_income > Q3 + 3*IQR (flag only)",
+    "sample_rule": "loan id % 800 = 0 (49 loans, 32 columns)",
+    "engine": "duckdb 1.5.6"
+  },
+  "headline": {
+    "loans": 39717,
+    "completed_loans": 38577,
+    "current_loans": 1140,
+    "defaults": 5627,
+    "default_rate_pct": 14.59,
+    "funded_total": 434810325.0,
+    "avg_int_rate_pct": 12.02,
+    "median_annual_income": 59000.0,
+    "median_dti": 13.4,
+    "pct_60_month": 26.74,
+    "principal_lost": 40049086.0,
+    "loss_rate_pct": 9.63,
+    "net_return_pct": 10.04,
+    "first_issue_month": "2007-06-01",
+    "last_issue_month": "2011-12-01"
+  },
+  "default_by_grade": [
+    {
+      "grade": "A",
+      "loans": 10045,
+      "default_rate_pct": 5.99,
+      "avg_int_rate_pct": 7.33,
+      "net_return_pct": 7.19
+    },
+    {
+      "grade": "B",
+      "loans": 11675,
+      "default_rate_pct": 12.21,
+      "avg_int_rate_pct": 11.01,
+      "net_return_pct": 9.59
+    },
+    {
+      "grade": "C",
+      "loans": 7834,
+      "default_rate_pct": 17.19,
+      "avg_int_rate_pct": 13.53,
+      "net_return_pct": 10.57
+    },
+    {
+      "grade": "D",
+      "loans": 5085,
+      "default_rate_pct": 21.99,
+      "avg_int_rate_pct": 15.66,
+      "net_return_pct": 11.18
+    },
+    {
+      "grade": "E",
+      "loans": 2663,
+      "default_rate_pct": 26.85,
+      "avg_int_rate_pct": 17.63,
+      "net_return_pct": 13.04
+    },
+    {
+      "grade": "F",
+      "loans": 976,
+      "default_rate_pct": 32.68,
+      "avg_int_rate_pct": 19.64,
+      "net_return_pct": 12.38
+    },
+    {
+      "grade": "G",
+      "loans": 299,
+      "default_rate_pct": 33.78,
+      "avg_int_rate_pct": 21.31,
+      "net_return_pct": 13.92
+    }
+  ],
+  "default_by_purpose_top5": [
+    {
+      "purpose": "small_business",
+      "loans": 1754,
+      "default_rate_pct": 27.08
+    },
+    {
+      "purpose": "renewable_energy",
+      "loans": 102,
+      "default_rate_pct": 18.63
+    },
+    {
+      "purpose": "educational",
+      "loans": 325,
+      "default_rate_pct": 17.23
+    },
+    {
+      "purpose": "other",
+      "loans": 3865,
+      "default_rate_pct": 16.38
+    },
+    {
+      "purpose": "house",
+      "loans": 367,
+      "default_rate_pct": 16.08
+    }
+  ],
+  "default_by_income": [
+    {
+      "income_band": "1: <30k",
+      "loans": 3743,
+      "default_rate_pct": 18.7
+    },
+    {
+      "income_band": "2: 30-50k",
+      "loans": 10617,
+      "default_rate_pct": 16.47
+    },
+    {
+      "income_band": "3: 50-75k",
+      "loans": 11911,
+      "default_rate_pct": 14.62
+    },
+    {
+      "income_band": "4: 75-100k",
+      "loans": 6327,
+      "default_rate_pct": 12.53
+    },
+    {
+      "income_band": "5: 100-150k",
+      "loans": 4270,
+      "default_rate_pct": 10.66
+    },
+    {
+      "income_band": "6: 150k+",
+      "loans": 1709,
+      "default_rate_pct": 11.06
+    }
+  ],
+  "default_by_dti": [
+    {
+      "dti_band": "1: 0-5",
+      "loans": 5044,
+      "default_rate_pct": 12.39
+    },
+    {
+      "dti_band": "2: 5-10",
+      "loans": 7861,
+      "default_rate_pct": 12.73
+    },
+    {
+      "dti_band": "3: 10-15",
+      "loans": 9624,
+      "default_rate_pct": 14.54
+    },
+    {
+      "dti_band": "4: 15-20",
+      "loans": 8824,
+      "default_rate_pct": 15.8
+    },
+    {
+      "dti_band": "5: 20-25",
+      "loans": 6599,
+      "default_rate_pct": 16.99
+    },
+    {
+      "dti_band": "6: 25-30",
+      "loans": 625,
+      "default_rate_pct": 13.92
+    }
+  ],
+  "default_by_term": [
+    {
+      "term": "36 months",
+      "loans": 29096,
+      "default_rate_pct": 11.09
+    },
+    {
+      "term": "60 months",
+      "loans": 9481,
+      "default_rate_pct": 25.31
+    }
+  ],
+  "assertions_passed": 15,
+  "assertions_total": 15
+}
